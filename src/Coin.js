@@ -5,7 +5,7 @@ class Coin extends Component {
     render() {
         return (
             <div className="Coin" >
-                <img src={this.props.face} />
+                <img src={this.props.face} alt={this.props.name} />
             </div>
         )
     }

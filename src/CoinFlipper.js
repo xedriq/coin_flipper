@@ -9,10 +9,11 @@ class CoinFlipper extends Component {
     }
 
     state = {
-        face: this.props.faces[1],
+        face: this.props.faces[0],
         flip_count: 0,
         head_count: 0,
-        tail_count: 0
+        tail_count: 0,
+        name: 'head'
     }
 
     flip() {
@@ -21,9 +22,9 @@ class CoinFlipper extends Component {
             face: this.props.faces[ranIdx],
             flip_count: this.state.flip_count + 1,
             head_count: ranIdx === 0 ? this.state.head_count + 1 : this.state.head_count,
-            tail_count: ranIdx === 1 ? this.state.tail_count + 1 : this.state.tail_count
+            tail_count: ranIdx === 1 ? this.state.tail_count + 1 : this.state.tail_count,
+            name: ranIdx === 0 ? 'head' : 'tail'
         })
-
     }
 
 
@@ -33,12 +34,12 @@ class CoinFlipper extends Component {
 
 
     render() {
-        const { face, flip_count, head_count, tail_count } = this.state
+        const { face, flip_count, head_count, tail_count, name } = this.state
         return (
 
             < div >
                 <h1>Coin Flipper (Cara Y Cruz)</h1>
-                <Coin face={face} />
+                <Coin face={face} name={name} />
                 <button onClick={this.clickHandler}>Flip Coin</button>
                 <p>Flip Count: {flip_count} Head Count: {head_count} Tail Count: {tail_count}</p>
             </div >
